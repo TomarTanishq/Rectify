@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser'
 import llamaService from './llamaService.js'
 import cors from 'cors'
 //URI
-const MONGO_URI = 'mongodb+srv://nodejsboy:nodejsboy@cluster1.ad7a3.mongodb.net/?retryWrites=true'
+const MONGO_URI = ''
 
 //Initializing express object
 const app = express()
