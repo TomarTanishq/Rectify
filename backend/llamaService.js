@@ -1,6 +1,6 @@
 import Groq from "groq-sdk/index.mjs";
 
-const groq = new Groq({ apiKey: "" })
+const groq = new Groq({ apiKey: "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" })
 
 async function llamaService(prompt) {
     try {

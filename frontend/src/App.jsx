@@ -2,7 +2,7 @@ import React, { lazy, useState } from "react";
 import { Route, Routes } from "react-router-dom"
 
 const Home = lazy(() => import("./pages/Home"))
-const Register = lazy(() => import("./pages/register"))
+const Register = lazy(() => import("./pages/Register"))
 const Login = lazy(() => import("./pages/Login"))
 const Dashboard = lazy(() => import("./pages/Dashboard"))
 const ContactPage = lazy(() => import("./pages/ContactPage"))

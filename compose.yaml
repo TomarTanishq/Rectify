@@ -1,0 +1,41 @@
+name: 'Rectify'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: rectify_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: 
+      context: ./backend
+    container_name: rectify_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/rectify-db
+    depends_on:
+      - mongo
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+  frontend:
+    build: 
+      context: ./frontend
+    container_name: rectify_frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNpb3VoeWFvY3lzZXJqa2RlYXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMDYwMDUsImV4cCI6MjA1NDc4MjAwNX0.-EQ9l0_uYq0j9Y5McbXk073bd6T9v4P3RvhYKEWZcQo
+      - VITE_API_URL=http://backend:3000
+    depends_on:
+      - backend
+    # volumes:
+    #   - ./frontend:/app
+    
+volumes:
+  mongo_data: {}
+  node_modules: {}
