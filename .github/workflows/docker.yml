@@ -24,7 +24,7 @@ jobs:
       run: docker-compose build -d
 
     - name: Wait for services to be ready
-        run: sleep 15
+      run: sleep 15
 
     - name: Check if backend is responding
       run: curl http://localhost:3000 || exit 1
