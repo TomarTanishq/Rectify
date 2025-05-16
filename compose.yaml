@@ -1,4 +1,4 @@
-name: 'Rectify'
+name: 'rectify'
 services:
   mongo:
     image: mongo:latest
